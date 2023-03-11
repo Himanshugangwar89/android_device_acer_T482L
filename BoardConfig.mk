@@ -151,7 +151,7 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/ashmemd_aidl_interface-cpp.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libashmemd_client.so
 
-# TWRP Configuration
+#TWRP Configuration
 TW_THEME := portrait_hdpi
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 RECOVERY_SDCARD_ON_DATA := true
@@ -175,6 +175,17 @@ TW_EXCLUDE_TWRP_APP := true
 #TW_EXCLUDE_APEX := true
 TW_EXCLUDE_SUPERSU := true
 
-# Logcat
-TWRP_INCLUDE_LOGCAT := true
+
+
+
+#TWRP Debug Flags
+
 TARGET_USES_LOGD := true
+
+TWRP_EVENT_LOGGING := false
+
+TWRP_INCLUDE_LOGCAT := true
+
+TARGET_RECOVERY_DEVICE_MODULES += debuggerd
+
+TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT_EXECUTABLES)/debuggerd
